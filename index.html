@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новогодний Гид Подарков</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- src="https://raw.githubusercontent.com/igoshina-dm/universe-hints/main/images/1.jpg"  -->
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Фон: ваша картинка + затемнение */
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: 
+      linear-gradient(rgba(15, 10, 8, 0.7), rgba(15, 10, 8, 0.7)),
+      url('https://raw.githubusercontent.com/igoshina-dm/NYpresent/main/img/ng.jpg') no-repeat center bottom / cover;
+    color: #f5f0e8; /* светло-кремовый для хорошей читаемости */
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Контейнер — полупрозрачный, но контрастный */
+  #app {
+    background: rgba(245, 235, 225, 0.92); /* кремово-бежевый с прозрачностью */
+    backdrop-filter: blur(6px);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 
+      0 12px 36px rgba(0, 0, 0, 0.25),
+      0 0 0 2px rgba(201, 168, 122, 0.2);
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(224, 201, 184, 0.4);
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #2c2522; /* тёмный уголь для контраста */
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 34px;
+    margin: 24px 0 36px;
+    position: relative;
+    color: #ffffff;;
+  }
+
+  /* Золотая гирлянда над заголовком */
+  h1::before {
+    content: "✨";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    animation: twinkle 3s infinite ease-in-out;
+    color: #d4b8a0; /* тёплое золото из картинки */
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.25); }
+  }
+
+  .step {
+    animation: fadeIn 0.6s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    padding: 18px;
+    background: rgba(240, 230, 220, 0.7); /* светло-кремовый полупрозрачный */
+    border-radius: 16px;
+    margin: 14px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid rgba(224, 201, 184, 0.5);
+    color: #412222;
+  }
+
+  label:hover {
+    background: rgba(235, 225, 215, 0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(194, 163, 143, 0.2);
+  }
+
+  label::before {
+    content: "🎁";
+    margin-right: 16px;
+    font-size: 22px;
+    opacity: 0.85;
+    color: #c9a87a; /* золото */
+    min-width: 28px;
+    text-align: center;
+  }
+
+  input[type="checkbox"] {
+    accent-color: #c9a87a;
+    margin-right: 16px;
+    transform: scale(1.2);
+  }
+
+  select {
+    width: 100%;
+    padding: 18px 22px;
+    border-radius: 16px;
+    border: 1px solid rgba(224, 201, 184, 0.6);
+    background: 
+      rgba(240, 230, 220, 0.8) 
+      url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9a87a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") 
+      no-repeat right 22px center;
+    background-size: 20px;
+    font-size: 17px;
+    appearance: none;
+    color: #2c2522;
+    font-weight: 500;
+  }
+
+  button {
+    background: #c9a87a; /* тёплое золото из ёлки */
+    color: #2c2522;
+    border: none;
+    padding: 20px 28px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 24px rgba(201, 168, 122, 0.4);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  button:hover:not(:disabled) {
+    background: #b59565;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(201, 168, 122, 0.5);
+  }
+
+  button:disabled {
+    background: #e0c9b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 6px 16px rgba(201, 168, 122, 0.2);
+  }
+
+  .gift-card {
+    padding: 20px 20px 20px 56px;
+    margin: 20px 0;
+    background: rgba(240, 230, 220, 0.75);
+    border-radius: 16px;
+    position: relative;
+    border-left: 5px solid #c9a87a;
+    color: #412222;
+  }
+
+  .gift-card::before {
+    content: "🎄";
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 22px;
+    opacity: 0.9;
+    color: #c9a87a;
+  }
+
+  .gift-card strong {
+    color: #2c2522;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  #interests-error {
+    color: #e06a6a;
+    font-size: 15px;
+    margin-top: 12px;
+    display: none;
+    text-align: center;
+  }
+
+  .subscribe-cta {
+    background: rgba(245, 235, 225, 0.85);
+    padding: 30px;
+    border-radius: 18px;
+    margin-top: 40px;
+    text-align: center;
+    border: 2px dashed rgba(201, 168, 122, 0.3);
+    position: relative;
+  }
+
+  .subscribe-cta p {
+    font-size: 17px;
+    color: #2c2522;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+
+  /* Лошадка 2026 */
+  .subscribe-cta::after {
+    content: "🐴";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    opacity: 0.5;
+    color: #c9a87a;
+  }
+
+  .subscribe-btn {
+    background: #b59565;
+    padding: 16px 32px;
+    font-size: 18px;
+    border-radius: 14px;
+    font-weight: 600;
+    width: auto;
+    margin-top: 16px;
+    box-shadow: 0 6px 18px rgba(181, 149, 101, 0.35);
+  }
+
+  .subscribe-btn:hover {
+    background: #a08258;
+    transform: translateY(-2px);
+  }
+
+  /* Мобильная адаптация */
+  @media (max-width: 480px) {
+    body {
+      padding: 16px;
+    }
+    #app {
+      padding: 26px;
+      border-radius: 20px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    label::before, .gift-card::before {
+      font-size: 20px;
+    }
+    .gift-card {
+      padding-left: 50px;
+    }
+    .subscribe-cta {
+      padding: 26px;
+    }
+  }
+</style>
+  
+  </head>
+<body>
+  <h1>Новогодний Гид Подарков</h1>
+  <div id="app">
+    <div id="questions" class="step"></div>
+    <div id="results" class="step" style="display:none;"></div>
+  </div>
+
+  <script>
+    // БАЗА ВСЕХ ПОДАРКОВ (105 шт)
+    const gifts = [
+      // Ребёнок до 3 лет
+      { id: 1, title: "Мягкая книжка «Зимние звуки»", category: "child-0-3", budget: "low", interests: ["books", "creative"], description: "С шуршалками и зеркальцем — идеально для сенсорного развития" },
+      { id: 2, title: "Набор деревянных игрушек", category: "child-0-3", budget: "low", interests: ["creative", "nature"], description: "Пирамидки, матрёшки, машинки — натуральное дерево, безопасные краски" },
+      { id: 3, title: "Музыкальный коврик с кнопками", category: "child-0-3", budget: "low", interests: ["music", "creative"], description: "Развивает слух и координацию — и родители могут поспать под мелодию" },
+      { id: 4, title: "Костюм Снеговика/Зайчика", category: "child-0-3", budget: "medium", interests: ["creative"], description: "Мягкий, тёплый, из хлопка — для домашнего праздника и фото" },
+      { id: 5, title: "Набор силиконовых форм для печенья", category: "child-0-3", budget: "low", interests: ["creative", "cozy"], description: "Совместное творчество: лепим ёлочки и звёзды всей семьёй" },
+
+      // Ребёнок 3–7 лет
+      { id: 6, title: "Набор для лепки (Djeco / Пластишка)", category: "child-3-7", budget: "medium", interests: ["creative"], description: "Пластилин + формочки + инструменты — часы творчества без экрана" },
+      { id: 7, title: "Книга «Как устроен Дед Мороз»", category: "child-3-7", budget: "low", interests: ["books", "science"], description: "Иллюстрированная энциклопедия с юмором и фактами" },
+      { id: 8, title: "Домик-палатка для игр", category: "child-3-7", budget: "high", interests: ["creative", "nature"], description: "Уголок уюта в гостиной — для чтения, игр и мечтаний" },
+      { id: 9, title: "Набор для выращивания кристаллов", category: "child-3-7", budget: "medium", interests: ["science", "creative"], description: "Безопасный, с подсветкой — наблюдать, как растёт волшебство" },
+      { id: 10, title: "Интерактивная карта «Зимние традиции мира»", category: "child-3-7", budget: "medium", interests: ["books", "science"], description: "Где Дед Мороз ездит на оленях, а где — на верблюде?" },
+      { id: 11, title: "Набор для росписи глиняных фигурок", category: "child-3-7", budget: "medium", interests: ["creative"], description: "Раскрась, запеки, подари — готовый подарок руками ребёнка" },
+      { id: 12, title: "Детский термос с мультиками", category: "child-3-7", budget: "low", interests: ["cozy"], description: "Тёплый компот в садик или на прогулку — с любимым героем" },
+      { id: 13, title: "Книга с подвижными элементами «Новогодняя ночь»", category: "child-3-7", budget: "medium", interests: ["books", "creative"], description: "Открывай окошки, двигай звёзды — волшебство в каждой детали" },
+      { id: 14, title: "Набор музыкальных инструментов", category: "child-3-7", budget: "low", interests: ["music"], description: "Ксилофон, маракасы, барабан — маленький оркестр дома" },
+      { id: 15, title: "Светящиеся наклейки «Звёздное небо»", category: "child-3-7", budget: "low", interests: ["creative", "cozy"], description: "Наклей на потолок — и засыпай под звёздами" },
+
+      // Подросток 8–14
+      { id: 16, title: "Настольная игра «Кодenames: Дуэт»", category: "teen", budget: "medium", interests: ["creative", "books"], description: "Для всей семьи — развивает логику и командную работу" },
+      { id: 17, title: "Беспроводные наушники", category: "teen", budget: "high", interests: ["gadgets", "music"], description: "С ярким дизайном и хорошим звуком — для учёбы и музыки" },
+      { id: 18, title: "Набор для создания аромасвечей", category: "teen", budget: "medium", interests: ["creative", "cozy"], description: "Сделай свечу с запахом ванили, хвои или мандарина" },
+      { id: 19, title: "Планировщик «Мои цели на 2026»", category: "teen", budget: "low", interests: ["books", "creative"], description: "С трекерами настроения, привычек и мечтаний" },
+      { id: 20, title: "Книга «Как всё устроено»", category: "teen", budget: "medium", interests: ["science", "books"], description: "От ракет до Wi-Fi — понятно и захватывающе" },
+      { id: 21, title: "Мини-проектор для фильмов", category: "teen", budget: "high", interests: ["gadgets"], description: "Киносеанс в комнате — под пледом и с попкорном" },
+      { id: 22, title: "Набор для росписи маркерами на ткани", category: "teen", budget: "medium", interests: ["creative"], description: "Укрась рюкзак, футболку или кепку — сделай своё!" },
+      { id: 23, title: "Фитнес-браслет", category: "teen", budget: "high", interests: ["gadgets"], description: "Следи за сном, шагами и получай напоминания вставать" },
+      { id: 24, title: "Набор «Кулинарный детектив»", category: "teen", budget: "medium", interests: ["creative", "cozy"], description: "Рецепты + загадки — готовь и разгадывай тайны" },
+      { id: 25, title: "Подписка на MasterClass Junior", category: "teen", budget: "premium", interests: ["science", "creative"], description: "Уроки от лучших — рисование, программирование, музыка" },
+
+      // Студент / молодой взрослый
+      { id: 26, title: "Умная кружка с подогревом", category: "adult", budget: "high", interests: ["gadgets", "cozy"], description: "Кофе всегда тёплый — даже если ты засиделся за ноутбуком" },
+      { id: 27, title: "Набор «Утро без стресса»", category: "adult", budget: "medium", interests: ["beauty", "cozy"], description: "Маска для сна + беруши + чай «энергия» — мягкий старт в день" },
+      { id: 28, title: "Power bank в стильном чехле", category: "adult", budget: "medium", interests: ["gadgets"], description: "Компактный, но мощный — и выглядит как аксессуар" },
+      { id: 29, title: "Книга «Атомные привычки»", category: "adult", budget: "low", interests: ["books"], description: "Издание в твёрдом переплёте — вдохновение на год вперёд" },
+      { id: 30, title: "Сертификат в кофейню / книжный", category: "adult", budget: "low", interests: ["cozy", "books"], description: "Выбор за ними — но радость уже сейчас" },
+      { id: 31, title: "Мини-фонтанчик для стола", category: "adult", budget: "medium", interests: ["cozy"], description: "Звук воды — успокаивает ум и вдохновляет" },
+      { id: 32, title: "Набор эфирных масел «Зимнее настроение»", category: "adult", budget: "medium", interests: ["beauty", "cozy"], description: "Хвоя, апельсин, корица — аромат праздника без свечей" },
+      { id: 33, title: "Френч-пресс для путешествий", category: "adult", budget: "medium", interests: ["cozy"], description: "Премиальный кофе в офисе, поезде или на даче" },
+      { id: 34, title: "Ежедневник с минималистичным дизайном", category: "adult", budget: "low", interests: ["books", "creative"], description: "Бежевая обложка, плотная бумага — для идей и планов" },
+      { id: 35, title: "Сертификат на онлайн-курс", category: "adult", budget: "medium", interests: ["creative", "science"], description: "Иллюстрация, кодинг, йога — то, что вдохновляет" },
+
+      // Коллега
+      { id: 36, title: "Набор премиального чая", category: "adult", budget: "low", interests: ["cozy"], description: "В праздничной коробке — для уютных перерывов" },
+      { id: 37, title: "Деревянный органайзер", category: "adult", budget: "medium", interests: ["cozy", "gadgets"], description: "Для ручек, скрепок, наушников — порядок на столе" },
+      { id: 38, title: "Календарь 2026 с цитатами", category: "adult", budget: "low", interests: ["books"], description: "Мудрость великих — на каждый день" },
+      { id: 39, title: "Блокнот Moleskine", category: "adult", budget: "medium", interests: ["books", "creative"], description: "Чёрный или бежевый — классика, которая уважают" },
+      { id: 40, title: "Магниты «Позитивные напоминания»", category: "adult", budget: "low", interests: ["cozy"], description: "«Ты справишься», «Выдохни» — на холодильник или доску" },
+      { id: 41, title: "Настольная лампа на прищепке", category: "adult", budget: "medium", interests: ["gadgets", "cozy"], description: "Экономит место и даёт тёплый свет" },
+      { id: 42, title: "Шоколад ручной работы", category: "adult", budget: "low", interests: ["cozy"], description: "С морской солью, лавандой или карамелью — гурманский подарок" },
+      { id: 43, title: "Мышка с тёплой подсветкой", category: "adult", budget: "medium", interests: ["gadgets"], description: "Удобная, тихая, с RGB — но в минималистичном стиле" },
+      { id: 44, title: "Мини-гирлянда для стола", category: "adult", budget: "low", interests: ["cozy"], description: "30 см — но создаёт атмосферу праздника" },
+      { id: 45, title: "Брелок — символ 2026 (Лошадь)", category: "adult", budget: "low", interests: ["cozy"], description: "Лаконичный, из металла — на ключи или сумку" },
+
+      // Родители
+      { id: 46, title: "Массажёр для шеи", category: "adult", budget: "high", interests: ["beauty", "cozy"], description: "С прогревом и вибрацией — после дня забот" },
+      { id: 47, title: "Фотоальбом «Наши лучшие моменты»", category: "adult", budget: "medium", interests: ["creative", "cozy"], description: "Заполни сам — это будет ценнее любого гаджета" },
+      { id: 48, title: "Термокружка с гравировкой", category: "adult", budget: "medium", interests: ["cozy"], description: "С именем или добрым словом — для утреннего кофе" },
+      { id: 49, title: "Подписка на онлайн-кинотеатр", category: "adult", budget: "medium", interests: ["cozy"], description: "Вечера кино — теперь в удовольствие" },
+      { id: 50, title: "Набор ухода за руками", category: "adult", budget: "medium", interests: ["beauty"], description: "Крем, масло, перчатки — забота, которую видно" },
+      { id: 51, title: "Умные весы", category: "adult", budget: "high", interests: ["gadgets"], description: "Анализ жира, воды, мышц — для осознанного здоровья" },
+      { id: 52, title: "Плед из микрофибры", category: "adult", budget: "medium", interests: ["cozy"], description: "Нейтральные тона, короткий ворс — элегантно и тепло" },
+      { id: 53, title: "Книга воспоминаний «Расскажи мне о себе»", category: "adult", budget: "low", interests: ["books", "cozy"], description: "Вопросы для записи истории жизни — бесценный подарок" },
+      { id: 54, title: "Чаи «Спокойная ночь»", category: "adult", budget: "low", interests: ["cozy", "beauty"], description: "Мелисса, хмель, ромашка — для лёгкого засыпания" },
+      { id: 55, title: "Сертификат на доставку еды", category: "adult", budget: "high", interests: ["cozy"], description: "1 раз в неделю — без готовки, только удовольствие" },
+
+      // Партнёр
+      { id: 56, title: "Сертификат на ужин / спа", category: "adult", budget: "premium", interests: ["cozy", "beauty"], description: "Время вдвоём — главный подарок" },
+      { id: 57, title: "Мини-проектор для фильмов", category: "adult", budget: "high", interests: ["gadgets", "cozy"], description: "Романтический вечер с фильмом под пледом" },
+      { id: 58, title: "Книга «Почему я люблю тебя»", category: "adult", budget: "low", interests: ["books", "cozy"], description: "С пустыми страницами — напиши свои причины" },
+      { id: 59, title: "Аромалампа с маслами", category: "adult", budget: "medium", interests: ["beauty", "cozy"], description: "Стильный дизайн + ароматерапия — для души" },
+      { id: 60, title: "Набор вина/сыра + доска", category: "adult", budget: "high", interests: ["cozy"], description: "Дегустация дома — с тёплым светом и музыкой" },
+      { id: 61, title: "Персонализированный календарь", category: "adult", budget: "medium", interests: ["creative", "cozy"], description: "С вашими фото — каждый месяц напоминает о счастье" },
+      { id: 62, title: "Умная лампа с цветотерапией", category: "adult", budget: "high", interests: ["gadgets", "cozy"], description: "Меняет цвет под настроение — от энергии до сна" },
+      { id: 63, title: "Шелковая пижама / халат", category: "adult", budget: "premium", interests: ["beauty", "cozy"], description: "Бежевый, элегантный крой — роскошь для дома" },
+      { id: 64, title: "Утяжелённая подушка", category: "adult", budget: "high", interests: ["beauty", "cozy"], description: "Для глубокого сна и расслабления нервной системы" },
+      { id: 65, title: "Набор «Домашний уют»", category: "adult", budget: "medium", interests: ["cozy", "beauty"], description: "Свечи, плед, плейлист — комплект для идеального вечера" },
+
+      // Уют и забота о себе
+      { id: 66, title: "Мини-растения в керамике", category: "adult", budget: "low", interests: ["nature", "cozy"], description: "Суккуленты или фикусы — живой декор" },
+      { id: 67, title: "Аромадиффузор", category: "adult", budget: "medium", interests: ["beauty", "cozy"], description: "Тихий, стильный — наполняет дом ароматом" },
+      { id: 68, title: "Крем для рук (L’Occitane)", category: "adult", budget: "medium", interests: ["beauty"], description: "Подарочная упаковка — забота, которую чувствуешь" },
+      { id: 69, title: "Книга «Искусство медленной жизни»", category: "adult", budget: "low", interests: ["books", "cozy"], description: "Как жить осознанно в мире спешки" },
+      { id: 70, title: "Набор травяных ванн", category: "adult", budget: "medium", interests: ["beauty", "cozy"], description: "С лавандой, молоком или мёдом — спа дома" },
+      { id: 71, title: "Маска для сна из шёлка", category: "adult", budget: "medium", interests: ["beauty", "cozy"], description: "Не мнёт кожу, не сползает — идеальный сон" },
+      { id: 72, title: "Дневник благодарности", category: "adult", budget: "low", interests: ["books", "cozy"], description: "3 строки в день — и мир становится добрее" },
+      { id: 73, title: "Свечи «Сезоны года»", category: "adult", budget: "medium", interests: ["cozy"], description: "Хвоя, ваниль, дождь — ароматы времени" },
+      { id: 74, title: "Уютные тапочки", category: "adult", budget: "low", interests: ["cozy", "beauty"], description: "Натуральная подошва, мягкий ворс — как объятия" },
+      { id: 75, title: "Подписка на медитации", category: "adult", budget: "medium", interests: ["cozy", "beauty"], description: "В приложении «Звуки» или аналоге — для спокойствия" },
+
+      // Творчество
+      { id: 76, title: "Акварель в тубиках", category: "adult", budget: "medium", interests: ["creative"], description: "Набор для начинающих — с кистью и палитрой" },
+      { id: 77, title: "Скетчбук с плотной бумагой", category: "adult", budget: "low", interests: ["creative"], description: "Для акварели, маркеров, карандашей — не просвечивает" },
+      { id: 78, title: "Каллиграфические ручки", category: "adult", budget: "medium", interests: ["creative"], description: "Для красивых писем и плакатов" },
+      { id: 79, title: "Пазл «Зимний Париж»", category: "adult", budget: "medium", interests: ["creative", "cozy"], description: "1000 деталей — медитация для взрослых" },
+      { id: 80, title: "Книга «Цвет и эмоции»", category: "adult", budget: "medium", interests: ["books", "creative"], description: "Как цвет влияет на настроение и решения" },
+      { id: 81, title: "Набор для скрапбукинга", category: "adult", budget: "medium", interests: ["creative"], description: "Бумага, наклейки, ленты — создай историю" },
+      { id: 82, title: "Мольберт-планшет", category: "adult", budget: "high", interests: ["creative"], description: "Для рисования на коленях — в кафе или парке" },
+      { id: 83, title: "Сертификат на мастер-класс", category: "adult", budget: "high", interests: ["creative"], description: "Керамика, роспись, флористика — опыт вместо вещи" },
+      { id: 84, title: "Цветные карандаши Faber-Castell", category: "adult", budget: "medium", interests: ["creative"], description: "Высокое качество — для настоящих работ" },
+      { id: 85, title: "Подставка для кистей", category: "adult", budget: "low", interests: ["creative"], description: "Ручная работа из керамики или дерева" },
+
+      // Техно / Любознательные
+      { id: 86, title: "Умная лампочка", category: "adult", budget: "medium", interests: ["gadgets"], description: "Управление голосом, цвет и яркость — по настроению" },
+      { id: 87, title: "Органайзер с беспроводной зарядкой", category: "adult", budget: "high", interests: ["gadgets"], description: "Для телефона, часов, AirPods — всё в одном" },
+      { id: 88, title: "Мини-проектор для смартфона", category: "adult", budget: "high", interests: ["gadgets"], description: "Кино на стене — даже в походе" },
+      { id: 89, title: "Набор для сборки робота", category: "adult", budget: "premium", interests: ["science", "gadgets"], description: "Для взрослых и подростков — учит программированию" },
+      { id: 90, title: "Электронная книга", category: "adult", budget: "premium", interests: ["books", "gadgets"], description: "Б/у в хорошем состоянии — бюджетный вариант" },
+      { id: 91, title: "Умная розетка", category: "adult", budget: "low", interests: ["gadgets"], description: "Включи обогреватель за 5 минут до прихода" },
+      { id: 92, title: "Научные эксперименты дома", category: "adult", budget: "medium", interests: ["science"], description: "Создай вулкан, радугу или лаву — безопасно!" },
+      { id: 93, title: "Подписка на «Кот Шрёдингера»", category: "adult", budget: "medium", interests: ["books", "science"], description: "Журнал для любознательных детей и взрослых" },
+      { id: 94, title: "USB-подогрев кружки", category: "adult", budget: "medium", interests: ["gadgets"], description: "Для тех, кто забывает допить кофе" },
+      { id: 95, title: "Гаджет-кубик для декомпрессии", category: "adult", budget: "low", interests: ["gadgets"], description: "С мини-играми и светом — антистресс для офиса" },
+
+      // Универсальные
+      { id: 96, title: "Подарочный сертификат", category: "adult", budget: "any", interests: ["surprise"], description: "Ozon, Wildberries, кино — свобода выбора" },
+      { id: 97, title: "Набор «Новогоднее настроение»", category: "adult", budget: "medium", interests: ["cozy", "surprise"], description: "Мандарины в коробке + чай + свеча — готовый праздник" },
+      { id: 98, title: "Ежедневник 2026", category: "adult", budget: "low", interests: ["books", "surprise"], description: "Нейтральная обложка, плотная бумага — для каждого" },
+      { id: 99, title: "Набор мини-сиропов", category: "adult", budget: "low", interests: ["cozy", "surprise"], description: "Для кофе, чая или газировки — в подарочной коробке" },
+      { id: 100, title: "Гирлянда-фотолента", category: "adult", budget: "low", interests: ["cozy", "surprise"], description: "Прикрепи свои фото — и воспоминания светятся" },
+      { id: 101, title: "Книга «52 способа испортить день»", category: "adult", budget: "low", interests: ["books", "surprise"], description: "С чёрным юмором — для улыбки в стрессовый день" },
+      { id: 102, title: "Набор «Позитивных напоминаний»", category: "adult", budget: "low", interests: ["cozy", "surprise"], description: "Магниты или карточки — для холодильника или стола" },
+      { id: 103, title: "Мини-ёлка на стол", category: "adult", budget: "low", interests: ["cozy", "surprise"], description: "Фетр, керамика или дерево — уют в миниатюре" },
+      { id: 104, title: "Сертификат на астрологический разбор", category: "adult", budget: "medium", interests: ["surprise"], description: "Персональный прогноз от профессионала — загадочно и глубоко" },
+      { id: 105, title: "Набор «Тёплых слов»", category: "adult", budget: "low", interests: ["cozy", "surprise"], description: "Открытки с вдохновляющими фразами — дари тепло" }
+    ];
+
+    // ВОПРОСЫ
+    const steps = [
+      {
+        key: "recipient",
+        question: "Кому будете дарить подарок?",
+        options: [
+          { value: "child-0-3", label: "Ребёнок до 3 лет" },
+          { value: "child-3-7", label: "Ребёнок 3–7 лет" },
+          { value: "teen", label: "Подросток (8–14 лет)" },
+          { value: "adult", label: "Взрослый (друг, коллега, родитель и т.д.)" }
+        ]
+      },
+      {
+        key: "budget",
+        question: "Какой у вас бюджет?",
+        options: [
+          { value: "low", label: "До 1 000 ₽" },
+          { value: "medium", label: "1 000 – 3 000 ₽" },
+          { value: "high", label: "3 000 – 7 000 ₽" },
+          { value: "premium", label: "Готов(а) вложиться" }
+        ]
+      },
+      {
+        key: "interests",
+        question: "Что любит получатель? (выберите до 2)",
+        multi: true,
+        max: 2,
+        options: [
+          { value: "creative", label: "Творчество" },
+          { value: "science", label: "Наука / Эксперименты" },
+          { value: "books", label: "Книги" },
+          { value: "music", label: "Музыка" },
+          { value: "cozy", label: "Дом / Уют" },
+          { value: "beauty", label: "Красота / Уход" },
+          { value: "gadgets", label: "Гаджеты / Технологии" },
+          { value: "nature", label: "Природа / Прогулки" },
+          { value: "surprise", label: "Не знаю — сюрприз!" }
+        ]
+      }
+    ];
+
+    let answers = {};
+    let currentStep = 0;
+
+    function renderStep() {
+      const step = steps[currentStep];
+      let html = `<h3>${step.question}</h3>`;
+      
+      if (step.multi) {
+        html += `<div id="options">`;
+        step.options.forEach(opt => {
+          html += `
+            <label>
+              <input type="checkbox" name="interests" value="${opt.value}" onchange="toggleInterest(this)"> 
+              ${opt.label}
+            </label>
+          `;
+        });
+        html += `</div><div id="interests-error">Можно выбрать не более 2</div>`;
+      } else {
+        html += `
+          <select id="select-answer">
+            <option value="">Выберите...</option>
+            ${step.options.map(opt => `<option value="${opt.value}">${opt.label}</option>`).join('')}
+          </select>
+        `;
+      }
+      
+      html += `<button onclick="nextStep()" id="next-btn" disabled>Далее</button>`;
+      document.getElementById('questions').innerHTML = html;
+      
+      // Восстанавливаем предыдущий ответ, если есть
+      if (answers[step.key]) {
+        if (step.multi) {
+          const selected = answers[step.key] || [];
+          document.querySelectorAll('input[name="interests"]').forEach(cb => {
+            cb.checked = selected.includes(cb.value);
+          });
+        } else {
+          const selectEl = document.getElementById('select-answer');
+          if (selectEl) {
+            selectEl.value = answers[step.key];
+            // Важно: вручную вызываем обновление, так как значение установлено программно
+            updateAnswerFromSelect(selectEl.value);
+          }
+        }
+      }
+      
+      // Назначаем обработчик события для select
+      const selectEl = document.getElementById('select-answer');
+      if (selectEl) {
+        selectEl.addEventListener('change', function() {
+          const value = this.value;
+          if (value) {
+            updateAnswerFromSelect(value);
+            updateNextButton();
+          } else {
+            delete answers[step.key];
+            updateNextButton();
+          }
+        });
+      }
+      
+      updateNextButton();
+    }
+
+    // Вспомогательная функция для обновления ответа из select
+    function updateAnswerFromSelect(value) {
+      const step = steps[currentStep];
+      if (step && !step.multi) {
+        answers[step.key] = value;
+      }
+    }
+
+    function toggleInterest(checkbox) {
+      const step = steps[currentStep];
+      const selected = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(cb => cb.value);
+      
+      if (selected.length > step.max) {
+        checkbox.checked = false;
+        document.getElementById('interests-error').style.display = 'block';
+        setTimeout(() => document.getElementById('interests-error').style.display = 'none', 2000);
+      } else {
+        answers[step.key] = selected;
+        updateNextButton();
+      }
+    }
+
+    function updateNextButton() {
+      const step = steps[currentStep];
+      console.log(currentStep)
+      console.log(step)
+      let isValid = false;
+      
+      if (step.multi) {
+        isValid = (answers[step.key] && answers[step.key].length > 0);
+      } else {
+        const val = document.getElementById('select-answer')?.value;
+        console.log(val)
+        if (val) {
+          console.log(val)
+          answers[step.key] = val;
+          isValid = true;
+        }
+      }
+      
+      document.getElementById('next-btn').disabled = !isValid;
+    }
+
+    function nextStep() {
+      currentStep++;
+      if (currentStep < steps.length) {
+        renderStep();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+    const { recipient, budget, interests } = answers;
+
+    // Шаг 1: основной фильтр по категории
+    let baseFiltered = gifts.filter(g => {
+      if (recipient !== 'adult') {
+        return g.category === recipient;
+      } else {
+        return g.category === 'adult';
+      }
+    });
+
+    // Фильтр по бюджету
+    if (budget !== 'premium') {
+      const budgetOrder = { low: 0, medium: 1, high: 2, premium: 3 };
+      baseFiltered = baseFiltered.filter(g => {
+        if (g.budget === 'any') return true;
+        return budgetOrder[g.budget] <= budgetOrder[budget];
+      });
+    }
+
+    // Шаг 2: сначала — по интересам (если не "сюрприз")
+    let relevant = [];
+    if (interests && interests.length > 0 && !interests.includes('surprise')) {
+      relevant = baseFiltered.filter(g =>
+        interests.some(i => g.interests?.includes(i))
+      );
+    }
+
+    // Шаг 3: если мало — добавляем общие из той же категории
+    let finalList = [...relevant];
+    if (finalList.length < 10) {
+      const missing = 15 - finalList.length;
+      const withoutInterests = baseFiltered.filter(g => !relevant.includes(g));
+      const shuffledExtra = [...withoutInterests].sort(() => 0.5 - Math.random());
+      finalList.push(...shuffledExtra.slice(0, missing));
+    }
+
+    // Шаг 4: если всё ещё мало — добавляем универсальные подарки
+    if (finalList.length < 10) {
+      const universal = gifts.filter(g => g.interests?.includes('surprise') && g.category === 'adult');
+      const missing = 15 - finalList.length;
+      const shuffledUniversal = [...universal].sort(() => 0.5 - Math.random());
+      finalList.push(...shuffledUniversal.slice(0, missing));
+    }
+
+    // Убираем дубликаты (на всякий случай)
+    const seen = new Set();
+    const uniqueResults = finalList.filter(g => {
+      if (seen.has(g.id)) return false;
+      seen.add(g.id);
+      return true;
+    });
+
+    // Берём до 20, но не менее того, что есть
+    const results = uniqueResults.slice(0, 20);
+    const count = results.length;
+
+    let html = `<h2>Вот ${count} подходящих идей для вас 👇</h2>`;
+    results.forEach(g => {
+      html += `
+        <div class="gift-card">
+          <strong>${g.title}</strong><br>
+          ${g.description}
+        </div>
+      `;
+    });
+
+    html += `
+      <div class="subscribe-cta">
+        <p>Все идеи подобраны вручную — без алгоритмов и навязчивой рекламы.</p>
+        <button class="subscribe-btn" onclick="window.open('https://t.me/mini_ups_lab', '_blank')">
+          Подписаться на канал → ещё больше идей мини приложений!
+        </button>
+      </div>
+    `;
+
+    document.getElementById('questions').style.display = 'none';
+    document.getElementById('results').innerHTML = html;
+    document.getElementById('results').style.display = 'block';
+  }
+
+    // СТАРТ
+    renderStep();
+  </script>
+</body>
+</html>
